@@ -171,10 +171,12 @@ title('Change in True Anomaly (\Theta) over time')
 rbarnew = [];
 vbarnew = [];
 for i = 1:length(tspan)
-    [rbarnew, vbarnew] = KEP2RV(Kep(:,i));
+    [rbarnew(i,:), vbarnew(i,:)] = KEP2RVmod(dkepdt(i,:));
 end
 
-
+% Plotting the changing orbit over time
+figure(2)
+plot3(rbarnew(:,1),rbarnew(:,2),rbarnew(:,3))
 
 
 
