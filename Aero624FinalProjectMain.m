@@ -176,6 +176,10 @@ end
 
 % Plotting the changing orbit over time
 figure(2)
+rad = 6371;
+[x,y,z] = sphere(1000);
+set(gcf, 'Position', [300 300 1200 550])
+mesh(x*rad,y*rad,z*rad); hold on;
 plot3(rbarnew(:,1),rbarnew(:,2),rbarnew(:,3))
 
 
