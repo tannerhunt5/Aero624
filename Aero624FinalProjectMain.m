@@ -117,8 +117,8 @@ end
 e0 = (r_a0 - r_p0)/(r_p0 + r_a0);
 h0 = sqrt(r_p0*mu*(1 + e0));
 a = (r_a0 + r_p0)/2;
-n = sqrt(a^3/mu);
-T = 2*pi*n;
+n = sqrt(mu/a^3);
+T = 2*pi/n;
 
 % Storing orbital elements
 Kep = [h0 e0 Omega0 inc0 argp0 TA0]';
@@ -182,6 +182,8 @@ set(gcf, 'Position', [300 300 1200 550])
 mesh(x*rad,y*rad,z*rad); hold on;
 plot3(rbarnew(:,1),rbarnew(:,2),rbarnew(:,3))
 
+% Exporting datapoints to CSV for use within the Unreal Engine
+% csvwrite('J2PropPoints.csv', rbarnew);
 
 
 
